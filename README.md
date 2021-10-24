@@ -35,6 +35,8 @@ Copy this to the script, add your parameters and build
 
 `"$SRCROOT"/<script path> <spreadsheet URL>`
 
+⚠️ Remember that the spreadsheet's link need to be public.
+
 ### Futures updates
 
 - [ ] Android support
