@@ -15,7 +15,7 @@ Just download the latest [binary](https://github.com/jrescabias/Localizable-Gene
 
 ### SpreadSheet format
 
-To make the script works we need to definite the **spreadsheet** with the following format:
+To make the script works we need to define the **spreadsheet** with the following format:
 
 ![](readmeAssets/spreadsheetFormat.png)
 
@@ -27,13 +27,15 @@ The first **row** need to have those keys
 
 You can add all the languages that you need on the next colums. Just remember to follow this format 😎 
 
-### Make it works
+### Make it work
 
 I recomend to create an aggregate target to your project called `Autogenerate` and add a ***New run script phase*** to the `build phases`.
 
 Copy this to the script, add your parameters and build
 
 `"$SRCROOT"/<script path> <spreadsheet URL>`
+
+⚠️ Remember that the spreadsheet's link need to be public.
 
 ### Futures updates
 
