@@ -18,6 +18,10 @@ struct GenerateLocalizables: ParsableCommand {
         }
         
         CSVDownloader(csvURL: url).downloadCSV()
+        
+        RunLoop.main.run()
     }
+    
+    
 }
 

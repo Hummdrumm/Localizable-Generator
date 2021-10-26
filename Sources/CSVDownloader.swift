@@ -21,19 +21,14 @@ class CSVDownloader {
         
         print("Downloading Localizable file ...".blue)
         var end = false
-        
-        let sema = DispatchSemaphore( value: 1) // just one concurrent operation at a time
-        
+
         let task = URLSession.shared.dataTask(with: csvURL) { [weak self] (data, response, error) in
             guard let self = self else { return }
-            sema.wait() // decrement semaphore, no more operations at the time
 
-            
             if let data = data, let csvString = String(data: data, encoding: .utf8) {
                 self.parseCSVString(csvString)
             }
             
-            sema.signal() // increment, done with this semaphore
             end = true
         };
         
@@ -43,7 +38,7 @@ class CSVDownloader {
         let animation = ["|", "/", "-", "\\"]
         var animationIndex = 0
         while (!end) {
-            sema.wait()
+
             print("\(animation[animationIndex])\r", separator: "", terminator: "")
             
             if animationIndex < animation.count - 1 {
@@ -51,9 +46,16 @@ class CSVDownloader {
             } else {
                 animationIndex = 0
             }
-            sema.signal()
         }
-        didFailed ? print("❌ ERROR CREATING LOCALIZABLE ❌".red) : print("✅ LOCALIZABLES FILES DID UPDATE SUCCESSFULLY".lightGreen)
+        
+        if didFailed {
+            print("❌ ERROR CREATING LOCALIZABLE ❌".red)
+            exit(EXIT_FAILURE)
+        } else {
+            print("✅ LOCALIZABLES FILES DID UPDATE SUCCESSFULLY".lightGreen)
+            exit(EXIT_SUCCESS)
+        }
+        
         print("\r  ")
     }
     
@@ -74,7 +76,7 @@ class CSVDownloader {
         guard languages.count != 0 else {
             print("You need to add at least one language colum on the document ❌".red)
             didFailed.toggle()
-            return
+            exit(EXIT_FAILURE)
         }
 
         rows.removeFirst()
@@ -98,6 +100,7 @@ class CSVDownloader {
             } catch {
                 print("❌ ERROR CREATING LOCALIZABLE ❌".red)
                 didFailed.toggle()
+                exit(EXIT_FAILURE)
             }
             
             // turn empty the localizables array
