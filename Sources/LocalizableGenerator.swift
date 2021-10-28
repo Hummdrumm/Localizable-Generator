@@ -44,7 +44,6 @@ class LocalizableGenerator {
                 try file.write(localizabeText)
             })
             
-            exit(EXIT_SUCCESS)
         } catch  {
             print("❌ ERROR CREATING THE LOCALIZABLE STRING FILE ❌".red)
             exit(EXIT_FAILURE)

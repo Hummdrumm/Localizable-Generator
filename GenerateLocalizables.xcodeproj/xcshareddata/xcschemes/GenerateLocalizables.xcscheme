@@ -52,7 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "https://docs.google.com/spreadsheets/d/16e9zYAW0GfICDP4GBhO1qjfhwn1mFPZz5CL4x1y54P8/export\?format\=csv"
+            argument = ""
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
