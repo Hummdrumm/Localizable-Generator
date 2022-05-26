@@ -52,7 +52,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = ""
+            argument = "Localizations"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "https://docs.google.com/spreadsheets/d/&lt;DocumentIdentifier&gt;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
