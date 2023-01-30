@@ -56,7 +56,11 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "https://docs.google.com/spreadsheets/d/&lt;DocumentIdentifier&gt;"
+            argument = "https://docs.google.com/spreadsheets/d/19xupp9deUJ5AXC3O1FuilBYhi1xWnZ-DlDI1DakvWaE"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "ios"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

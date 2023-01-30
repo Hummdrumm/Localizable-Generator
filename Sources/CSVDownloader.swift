@@ -12,11 +12,13 @@ import Files
 class CSVDownloader {
     let csvURL: URL
     let destination: String
+    let platform: Platform
     var didFailed: Bool = false
 
-    public init(csvURL: URL, destination: String) {
+    public init(csvURL: URL, destination: String, platform: Platform) {
         self.csvURL = csvURL
         self.destination = destination
+        self.platform = platform
     }
 
     func downloadCSV() {
@@ -97,8 +99,18 @@ class CSVDownloader {
 
             valueIndex += 1
                 // save in document
+            let generator: LocalizableGenerator.Type
             do {
-                try LocalizableGenerator.createFile(for: languages[loopCount - 1], with: localizables, destination: destination)
+                switch platform {
+                case .ios:
+                    generator = LocalizableGenerator_iOS.self
+
+                case .android:
+                    generator = LocalizableGenerator_Android.self
+                }
+
+                try generator.createFile(for: languages[loopCount - 1], with: localizables, destination: destination)
+
             } catch {
                 print("❌ ERROR CREATING LOCALIZABLE ❌".red)
                 didFailed.toggle()
