@@ -39,4 +39,4 @@ Copy this to the script, add your parameters and build
 
 ### Futures updates
 
-- [ ] Android support
+- [X] Android support
